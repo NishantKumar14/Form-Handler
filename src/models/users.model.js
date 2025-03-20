@@ -26,8 +26,9 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        formId: {
+        formsId: {
             type: [String],
+            required: true,
         },
         isAdmin: {
             type: Boolean,
