@@ -5,4 +5,5 @@ dotenv.config({
     path: "./.env",
 });
 
-connectDB();
+connectDB()
+
