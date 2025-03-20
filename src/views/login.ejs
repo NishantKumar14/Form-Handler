@@ -1,0 +1,71 @@
+<%- include("partials/header.ejs") -%>
+<style>
+    .form-signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 10px;
+        margin: auto;
+    }
+
+    .form-signin .form-floating:focus-within {
+        z-index: 2;
+    }
+
+    .form-signin input {
+        margin: 3px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .form-floating {
+        padding: 4px;
+    }
+</style>
+
+<body class="text-center">
+    <main class="form-signin register">
+        <form action="/login" method="post">
+            <img
+                class="mb-4"
+                src="images/logo.png"
+                alt=""
+                width="72"
+                height="auto"
+            />
+            <h1 class="h3 mb-3 fw-normal text-light">Login</h1>
+
+            <div class="form-floating">
+                <input
+                    type="text"
+                    class="form-control"
+                    name="username"
+                    id="floatingInput"
+                    placeholder="Username"
+                    required
+                />
+                <label for="floatingInput">Username</label>
+            </div>
+
+            <div class="form-floating">
+                <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    name="password"
+                    placeholder="Password"
+                    required
+                />
+                <label for="floatingPassword">Password</label>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit">
+                Login
+            </button>
+            <a class="w-100 btn btn-lg btn-secondary mt-2" href="/register"
+                >Register</a
+            >
+        </form>
+    </main>
+
+    <%- include("partials/footer.ejs") -%>
+</body>

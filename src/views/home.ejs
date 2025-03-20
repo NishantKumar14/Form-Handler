@@ -1,0 +1,30 @@
+<%- include("partials/header.ejs") -%>
+<style>
+  .btn-primary {
+    background-color: #24A19C !important;
+  }
+
+  .btn-primary:hover {
+    cursor: pointer;
+    background-color: #1a8a86 !important;
+  }
+</style>
+<div class="home container my-5">
+  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3 text-light">
+      <h1 class="display-4 fw-bold lh-1">Form Handler</h1>
+      <p class="lead">Now you don't need to use backend server for using forms in your static websites, now just by
+        defining action attribute in your forms all your forms will be fetched and will be sent to your email ID, to get
+        the URL for your form action attribute Register/Login Now.</p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+        <a class="btn btn-primary btn-lg px-4 me-md-2" href="/contact">Contact</a>
+        <a class="btn btn-outline-secondary btn-lg px-4 text-light" href="/register">Register</a>
+      </div>
+    </div>
+    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+      <img class="rounded-lg-3" src="/images/home.jpg" alt="" width="400">
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") -%>

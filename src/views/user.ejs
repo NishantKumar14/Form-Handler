@@ -1,0 +1,59 @@
+<%- include("partials/header.ejs") -%>
+
+<style>
+    .card {
+        border: 2px solid white !important;
+    }
+
+    .btn-sm {
+        margin-left: 8px !important;
+    }
+</style>
+
+<% if(docs!=undefined && docs.length > 0) { %>
+    <div class="container text-white">
+        <div class="requests">
+            <h2 class="pt-3 text-center">Your Forms</h2>
+            <h4 class="card-header text-center">
+                Username : <b><%= docs[0].username %></b>
+            </h4>
+            <% for (let i=0;i<docs.length;i++){ %>
+            <div class="card text-center bg-transparent">
+                <div class="card-header mb-0 mt-1">
+                    Form Name : <%= docs[i].formTitle %>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Form Unique ID : <%= docs[i].formid %></p>
+                    <p class="card-text">Redirect URL : <br> <%= docs[i].redirectUrl %></p>
+                    <p class="card-text">Action Attribute URL : <br>
+                        <span
+                            id="action-url">https://confused-tan-elk.cyclic.app/form/<%= docs[i].username %>/<%= docs[i].formid %></span>
+                        <button class="btn btn-primary btn-sm copy-btn">Copy</button> </p>
+
+                    <form class="d-inline-block" action="/form/delete/<%= docs[i].formid %>" method="post">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <% } %>
+        </div>
+    </div>
+<% } else { %>
+    <div class="px-4 py-5 my-5 text-center text-white">
+        <h1 class="display-5 fw-bold">User/Forms not yet created</h1>
+    </div>
+<% } %>
+
+<script>
+    const btns = document.querySelectorAll('.copy-btn');
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', clipboardCopy = async () => {
+            let text = document.querySelectorAll("#action-url")[i].innerHTML;
+            await navigator.clipboard.writeText(text);
+            window.location.reload();
+        });
+    }
+</script>
+
+<%- include("partials/footer.ejs") -%>

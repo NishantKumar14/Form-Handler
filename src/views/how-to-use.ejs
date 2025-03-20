@@ -1,0 +1,101 @@
+<%- include("partials/header.ejs") -%>
+<script src="/rainbow-custom.min.js"></script>
+<link rel="stylesheet" href="/code-black.css" />
+<style>
+    pre {
+        font-size: 1em !important;
+    }
+
+    .dotted-hr {
+        border-style: none;
+        width: 7%;
+        border-top: 7px dotted white;
+        margin: auto;
+        background-color: transparent;
+        padding: 1em;
+    }
+</style>
+<div class="text-light container px-4">
+    <h2 class="title display-4">How to use the link?</h2>
+    <p class="how-text">
+        You have to create the forms as usual(on the static website on which you
+        want to add a contact or other forms), and just have to follow a
+        additional step of adding action attribute to this website so that data
+        can be forwarded directly to you on your email.
+    </p>
+    <p class="display-5">Follow these steps:</p>
+    <ol class="steps">
+        <li>
+            <a class="btn text-white btn-success" href="/login"
+                >Register/Login</a
+            >
+            on this websites.
+        </li>
+        <li>
+            Go on
+            <a class="btn text-white btn-success" href="/create-forms"
+                >Create Forms</a
+            >.
+        </li>
+        <li>
+            Enter form title and redirection URL(leave blank for
+            <a class="btn btn-success text-white" href="/success">default</a>).
+        </li>
+        <li>
+            Redirection URL is the URL redirected to, after successfull form
+            submittion on your static website.
+        </li>
+        <li>Click on Create Form.</li>
+        <li>
+            Save the form action URL given to you, which has your username and
+            unique form id.
+        </li>
+        <li>Create a HTML form normally as you do on your static website.</li>
+        <li>
+            Add action attribute to HTML form and give its value as the link
+            given to you in 6th step.
+        </li>
+        <li>
+            Only create a post request from your website while creating your
+            form, set method="post" in the form.
+        </li>
+        <li>Don't forget to set name attributes on your html forms.</li>
+        <li>
+            You can check all the forms you have created on your website on
+            <a
+                class="btn btn-success text-white"
+                href="/form/<%= currentUsername %>"
+                >My Forms</a
+            >
+            Page.
+        </li>
+        <li>
+            If you get stuck somewhere just send a message on
+            <a class="btn text-white btn-success" href="/contact">Contact</a>
+            page
+        </li>
+    </ol>
+    <br />
+    <hr class="dotted-hr" />
+    <h2>Example of the code that you have to use.</h2>
+    <h5>
+        Replace https://confused-tan-elk.cyclic.app/form-handler with the url
+        you copied from step 6, and change the form according to your needs.
+    </h5>
+    <pre>
+        <code data-language="html">
+    <form action="https://confused-tan-elk.cyclic.app/form-handler" method="post">
+        <label for="fname">First Name</label>
+        <input type="text" name="fname" id="fname">
+        <label for="lname">Last name</label>
+        <input type="text" name="lname" id="lname">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="phone" id="phone">
+        <button type="submit">Submit</button>
+    </form>
+</code>
+</pre>
+</div>
+<%- include("partials/footer.ejs") -%>

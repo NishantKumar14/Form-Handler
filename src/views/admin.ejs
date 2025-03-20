@@ -1,0 +1,39 @@
+<%- include("partials/header.ejs") -%>
+<style>
+    .card {
+        border: 2px solid white !important;
+    }
+</style>
+<h1 class="text-white text-center">Hello Admin, <%= currentUsername %></h1>
+
+<div class="container text-white">
+    <div class="requests">
+        <h2 class="pt-3 text-white text-center">Registered Users</h2>
+        <% for(let i=0 ; i < userdocs.length ; i++) { %>
+            <div class="card text-center  bg-transparent">
+                <h4 class="card-header">
+                    Username : <b><%= userdocs[i].username %></b>
+                </h4>
+                <div class="card-body">
+                    <h5 class="card-text"><b>Name</b> : <%= userdocs[i].name %></h5>
+                    <h5 class="card-text"><b>Email</b> : <%= userdocs[i].email %></h5>
+                    <h5 class="card-text"><b>Phone Number</b> : <%= userdocs[i].phoneNum %></h5>
+                    <h5 class="card-text"><b>Forms IDs</b> :
+                        <% for(let j=0 ; j < userdocs[i].formsid.length ; j++) { %>
+                        <%= userdocs[i].formsid[j] %>,
+                        <% } %>
+                    </h5>
+                    <% if(userdocs[i].isAdmin === true) { %>
+                        <h5 class="card-title text-success"><%= userdocs[i].name %> is an Admin</h5>
+                    <% } else { %>
+                        <h5 class="card-title text-danger"><%= userdocs[i].name %> is not an Admin</h5>
+                    <% } %>
+                </div>
+            </div>
+            <br>
+        <% } %>
+    </div>
+</div>
+<hr class="dotted-hr">
+
+<%- include("partials/footer.ejs") -%>

@@ -1,6 +1,6 @@
-import { User } from "../models/users.model";
+// import { User } from "../models/users.model";
 
-const requireLogin = (req, res, next) => {
+export const requireLogin = (req, res, next) => {
     try {
         if (!req.session?.user_id) {
             req.session.returnTo = req.originalUrl;
@@ -13,26 +13,26 @@ const requireLogin = (req, res, next) => {
     }
 };
 
-const setLocal = async (req, res, next) => {
-    try {
-        res.locals = {
-            url: req.url,
-            currentUser: req.session.user_id || "",
-            currentUsername: "",
-        };
+// const setLocal = async (req, res, next) => {
+//     try {
+//         res.locals = {
+//             url: req.url,
+//             currentUser: req.session.user_id || "",
+//             currentUsername: "",
+//         };
 
-        if (req.session.user_id) {
-            const user = await User.findById(req.session.user_id); // User -> Not define
-            if (user) {
-                res.locals.currentUsername = user.username;
-            }
-        }
+//         if (req.session.user_id) {
+//             const user = await User.findById(req.session.user_id); // User -> Not define
+//             if (user) {
+//                 res.locals.currentUsername = user.username;
+//             }
+//         }
 
-        next();
-    } catch (error) {
-        console.error("Error in setLocal middleware: ", error);
-        next(error);
-    }
-};
+//         next();
+//     } catch (error) {
+//         console.error("Error in setLocal middleware: ", error);
+//         next(error);
+//     }
+// };
 
-export { requireLogin, setLocal };
+// export { requireLogin, setLocal };

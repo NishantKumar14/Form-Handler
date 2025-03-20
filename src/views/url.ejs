@@ -1,0 +1,45 @@
+<%- include("partials/header.ejs") -%>
+
+<style>
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="p-5 mb-4 bg-transparent text-white rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold text-success">
+                Success, Form Register
+            </h1>
+            <p class="col-md-8 fs-4">
+                <span class="fw-bold">Form Title</span> : <%= docs.formTitle %>
+            </p>
+            <p class="col-md-8 fs-4">
+                <span class="fw-bold">Form Unique ID</span> : <%= docs.formid %>
+            </p>
+            <p class="col-md-8 fs-4">
+                <span class="fw-bold">Redirect URL</span> :<br />
+                <%= docs.redirectUrl %>
+            </p>
+            <p class="col-md-8 fs-4">
+                <span class="fw-bold">Form Action URL</span> :<br />
+                https://confused-tan-elk.cyclic.app/<%= docs.username %>/<%=
+                docs.formid %>
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button
+                    type="button"
+                    onclick="history.back()"
+                    class="btn btn-light text-dark btn-outline-secondary btn-lg px-4"
+                >
+                    Go Back
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") -%>
